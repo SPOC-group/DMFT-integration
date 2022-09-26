@@ -1,5 +1,5 @@
 # Rigorous-dynamical-mean-field-theory
-Code for integrating the DMFT equations in "Rigorous dynamical mean field theory for stochastic gradient descent methods"
+Code for integrating the DMFT equation
 
 # Dependencies
 - Numpy version 1.22.2
