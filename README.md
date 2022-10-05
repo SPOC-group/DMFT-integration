@@ -70,3 +70,22 @@ We also provided a numerical simulation for comparison. Note that this plot repr
 
 
 ![DMFT picture in the paper](Short_times.png)
+
+# Frequently Asked Questions
+
+## I am a big fan of Jupyter noteboks/Google Colab. What should I do?
+You should't have any problem with plotting and loading/saving data.
+
+All the functions that require MPI communication will need MPI4PY. It can be installed on Colab by using:
+
+```
+!pip install mpi4py
+```
+
+Wether you are using Colab or not, a function with MPI execuded in a Jupyter cell will use only 1 worker. To actually exploit multiple threads you will need to put everything in a Python script and run it using:
+
+```
+!mpiexec --allow-run-as-root -n {n_threads} python3 {Python scipt}
+```
+
+It's not the most convenient solution but it still allows you to use Colab for your computation.
