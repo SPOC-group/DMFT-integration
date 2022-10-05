@@ -89,3 +89,13 @@ Wether you are using Colab or not, a function with MPI execuded in a Jupyter cel
 ```
 
 It's not the most convenient solution but it still allows you to use Colab for your computation.
+
+
+## The plots look nice, but what am I looking at exactly?
+The plots show the gradient descent dynaics of a single layer neural network.
+
+More precisely suppose you have `N` samples of dimension `D` produced by a single layer neural network. You now want to train another single layer neural network with the same architecture on this data in the limit of both large `N` and `D` while keeping `alpha = N/D` finite. A natural measure of the learning is the normalized projection of the generator weights on the weights after `t` iterations of gradient descent. This is what we call the "magnetisation" in the plots.
+
+For this demonstration we are using linear networks with MSE loss and ridge regularisation, but the code can be adapted to arbitrary non-linearities, losses and regularisations by changing the function in `loss_functions.py` and `DMFR_equations.py`. 
+
+The code performs a fixed point iteration on the equations in [INSERT PAPER], and we can see in these plots how the magnetisation converges to a curve. Becuase of the nature of our system there is more error in the magnetisation at large times, so in oder to be precise in that case we need large `n_samples`, hence the need to parallelise. On the other hand we can see that for small times a couple of iterations are enough.
