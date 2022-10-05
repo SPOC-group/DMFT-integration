@@ -1,7 +1,19 @@
 from numba.typed import Dict
 from numba import types
 import numpy as np
+import warnings
 import pickle
+import re
+
+
+def MPI_check(comm):
+    """Checks wether you are using more then 1 worker. Raises a warning otherwise
+
+    Args:
+        comm : communication util
+    """
+    if comm.Get_size() == 1:
+        warnings.warn("the MPI pool has 1 worker")
 
 
 def set_seed(comm):
@@ -50,6 +62,41 @@ def init_parameters():
         key_type=types.unicode_type,
         value_type=types.float64,
     )
+    return parameters
+
+
+def read_parameters(file_name):
+    """_summary_
+
+    Args:
+        file_name (str): name of the file to be read
+
+    Returns:
+        dict: parameter dictionary with explicit type
+    """
+
+    parameters = init_parameters()
+
+    with open(file_name) as f:
+        lines = f.readlines()
+
+    for i, line in enumerate(lines):
+        name_match = re.search('".*"', line)
+        if name_match:
+            name = name_match.group()[1:-1]
+
+        val_match = re.search(":.*", line)
+        if val_match:
+            val_string = val_match.group()[1:]
+
+            if val_string[-1] == ",":
+                val_string = val_string[:-1]
+
+            val = float(val_string)
+
+        if name_match and val_match:
+            parameters[name] = val
+
     return parameters
 
 

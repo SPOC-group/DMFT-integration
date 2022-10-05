@@ -87,6 +87,8 @@ def iterate(comm, iteration, parameters):
         parameters (dict): parameters dictionary
     """
 
+    ut.MPI_check(comm)
+
     T = int(parameters["T"])
     damping = parameters["damping"]
 

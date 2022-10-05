@@ -4,7 +4,7 @@ import numpy as np
 import loss_functions as lf
 import math_tools as mt
 
-warnings.filterwarnings("ignore")
+warnings.filterwarnings("ignore", message="'@' is faster on contiguous arrays")
 
 
 @njit(fastmath=True)
