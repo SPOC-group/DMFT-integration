@@ -90,6 +90,9 @@ Wether you are using Colab or not, a function with MPI execuded in a Jupyter cel
 
 It's not the most convenient solution but it still allows you to use Colab for your computation.
 
+## I made my code work parallely on Colab, should I expect it to be faster because I used more than one worker?
+
+It's a difficult question for us to answer but I would say no. That being said if you run the code in a machine in which you know you ACTUALLY have multiple cores you will see an improvement.
 
 ## The plots look nice, but what am I looking at exactly?
 The plots show the gradient descent dynaics of a single layer neural network.
