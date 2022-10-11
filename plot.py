@@ -6,7 +6,7 @@ import utils as ut
 parameters = ut.read_parameters("parameters.json")
 
 utp.plot_magnetisation_simulations(parameters)
-for iteration in range(20, 30):
+for iteration in range(10, 15):
     utp.plot_magnetisation(parameters, iteration)
 
 
