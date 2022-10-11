@@ -1,3 +1,7 @@
+# Our files
+plot_final.py
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
