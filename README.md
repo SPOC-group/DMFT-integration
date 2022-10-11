@@ -1,7 +1,7 @@
 # Rigorous-dynamical-mean-field-theory
 Code for integrating the DMFT equation as in [ADD ARXIV LINK]
 
-![Pretty DMFT picture](Long_times.png)
+![Pretty DMFT picture](Final.png)
 
 # Dependencies
 - Numpy version 1.22.2
@@ -69,7 +69,9 @@ The `main.py` file that is provided will generate the iteration data that we pro
 We also provided a numerical simulation for comparison. Note that this plot reproduces the one in [INSERT PAPER NAME]
 
 
-![DMFT picture in the paper](Short_times.png)
+Short times                |  Long times
+:-------------------------:|:-------------------------:
+![DMFT picture in the paper](Short_times.png)  |  ![DMFT picture in the paper](Long_times.png)
 
 # Frequently Asked Questions
 
