@@ -27,10 +27,16 @@ def make_h(tilde_nu, m, batch, M_R, sq_mat, parameters):
     dt = parameters["dt"]
     T = int(parameters["T"])
     n_samples = int(parameters["n_samples"])
+    m_0 = parameters["m_0"]
 
     h = np.ones((T, n_samples))
 
+    # # SPHERICAL: Compute hat_nu
+    # h_start = np.random.normal(0, 1 - m_0**2, n_samples)
+
+    # REGULARISED: Compute hat_nu
     h_start = np.random.normal(0, 1, n_samples)
+
     h_0 = np.random.normal(0, 1, n_samples)
 
     noise = mt.make_noise(sq_mat, parameters)
